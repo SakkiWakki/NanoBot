@@ -35,10 +35,11 @@ async def reload_cog(ctx):
     bot.reload_extension('commands.auth')
     await ctx.respond('Cogs reloaded!', ephemeral=True)
 
+
 @reload_cog.error
 async def reload_cog_error(ctx, error):
     if isinstance(error, commands.CheckFailure):
-        await ctx.send('You are not the Yuck.')
+        await ctx.respond('You are not the Yuck.', ephemeral=True)
 
 bot.load_extension('commands.auth')
 
